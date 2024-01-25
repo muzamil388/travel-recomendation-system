@@ -1,0 +1,51 @@
+/* style for h1 and h2 headings */
+
+h1, h2 {
+    text-align: center;
+  }
+  
+   style for star ratings 
+  div input[type="radio"] {
+    display: none;
+  }
+  div input[type="radio"] + span {
+    cursor: pointer;
+    font-size: 30px;
+  }
+  div input[type="radio"]:checked + span:before {
+    content: "\2605"; 
+   } 
+  
+  /* style for budget input */
+  label[for="budgetInput"] {
+    display: block;
+  }
+  input[type="text"]#budgetInput {
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #0b7666;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  /* style for recommendation button */
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #000000;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #cc9c00;
+  }
+  body
+  {
+    background-color: #dcdebd;
+  }
+  

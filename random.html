@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Recommendation System></title>
+    <link rel="stylesheet" href="style2.css">
+  </head>
+  
+  <body>
+    <style>
+        #slideshow {
+			width: 100%;
+			height: 500px;
+			overflow: hidden;
+		}
+
+		#slideshow img {
+			width: 100%;
+			height: auto;
+            width: 50vw;
+            margin: auto;
+		}
+    
+    </style>
+    
+    <h1> Travel Recommendation System</h1>
+    <br>
+
+    <div id="slideshow">
+		<img src="1.png" alt="Beach">
+		<img src="2.png" alt="City">
+		<img src="3.png" alt="Outdoor">
+    <img src="4.png" alt="Beach">
+		<img src="5.png" alt="City">
+		<img src="6.png" alt="Outdoor">
+    <img src="7.png" alt="Beach">
+		<img src="8.png" alt="City">
+		<img src="9.png" alt="Outdoor">
+    <img src="10.png" alt="Beach">
+		<img src="11.png" alt="City">
+		<img src="12.png" alt="Outdoor">
+    <img src="13.png" alt="Beach">
+		<img src="14.png" alt="City">
+		<img src="15.png" alt="Outdoor">
+    <img src="16.png" alt="Beach">
+		
+	</div>
+  <br>
+  <br>
+  <h2> Give your Rating </h2>
+  <br>
+    <h2>Adventure Rating:
+        <div>
+            <input type="radio" name="AdventureRating" value="1"><span>&#9733;</span>
+            <input type="radio" name="AdventureRating" value="2"><span>&#9733;</span>
+            <input type="radio" name="AdventureRating" value="3"><span>&#9733;</span>
+            <input type="radio" name="AdventureRating" value="4"><span>&#9733;</span>
+            <input type="radio" name="AdventureRating" value="5"><span>&#9733;</span>
+          </div> 
+    </h2>
+    
+    <h2>Beach Rating:
+        <div>
+            <input type="radio" name="beachRating" value="1"><span>&#9733;</span>
+            <input type="radio" name="beachRating" value="2"><span>&#9733;</span>
+            <input type="radio" name="beachRating" value="3"><span>&#9733;</span>
+            <input type="radio" name="beachRating" value="4"><span>&#9733;</span>
+            <input type="radio" name="beachRating" value="5"><span>&#9733;</span>
+          </div> 
+    </h2>
+   
+
+    <h2>City Rating:
+        <div>
+            <input type="radio" name="cityRating" value="1"><span>&#9733;</span>
+            <input type="radio" name="cityRating" value="2"><span>&#9733;</span>
+            <input type="radio" name="cityRating" value="3"><span>&#9733;</span>
+            <input type="radio" name="cityRating" value="4"><span>&#9733;</span>
+            <input type="radio" name="cityRating" value="5"><span>&#9733;</span>
+          </div>
+    </h2>
+    
+
+    <h2>Snow Rating:
+        <div>
+            <input type="radio" name="snowRating" value="1"><span>&#9733;</span>
+            <input type="radio" name="snowRating" value="2"><span>&#9733;</span>
+            <input type="radio" name="snowRating" value="3"><span>&#9733;</span>
+            <input type="radio" name="snowRating" value="4"><span>&#9733;</span>
+            <input type="radio" name="snowRating" value="5"><span>&#9733;</span>
+          </div>
+      
+    </h2>
+   
+    <h2>Budget:
+        <div>
+            <label for="budgetInput"><h4>Enter your budget:</h4></label>
+           
+            <input type="number" id="budgetInput" name="budget">
+          </div>
+          <br>
+          <button type="button" onclick="recommend()">Recommend</button>
+    </h2>
+    
+
+
+    <script>
+        let currentSlide = 0;
+		const slides = document.querySelectorAll("#slideshow img");
+		const numSlides = slides.length;
+
+		// Hide all slides except the first one
+		for (let i = 1; i < numSlides; i++) {
+			slides[i].style.display = "none";
+		}
+
+		// Set interval to change slides every 3 seconds
+		setInterval(() => {
+			slides[currentSlide].style.display = "none";
+			currentSlide = (currentSlide + 1) % numSlides;
+			slides[currentSlide].style.display = "block";
+		}, 2500);
+
+		// get the rating elements
+		const skiRating = document.getElementById("ski_rating");
+		const beachRating = document.getElementById("beach_rating");
+		const mountainRating = document.getElementById("mountain_rating");
+		const snowRating = document.getElementById("snow_rating");
+
+		// set the ratings (assuming a scale of 1 to 5)
+		const skiRatingValue = 4;
+		const beachRatingValue = 3;
+		const mountainRatingValue = 5;
+		const snowRatingValue = 2;
+
+		// display the ratings as stars
+		skiRating.innerHTML = getStars(skiRatingValue);
+		beachRating.innerHTML = getStars(beachRatingValue);
+		mountainRating.innerHTML = getStars(mountainRatingValue);
+		snowRating.innerHTML = getStars(snowRatingValue);
+
+		// function to get stars based on the rating value
+		function getStars(rating) {
+			const maxRating = 5;
+			let stars = "";
+			for (let i = 1; i <= maxRating; i++) {
+				if (i <= rating) {
+					stars += "&#9733; "; // full star
+				} else {
+					stars += "&#9734; "; // empty star
+				}
+			}
+			return stars;
+		}
+	
+
+
+
+      function recommend() {
+        // get selected ratings and budget input
+        const beachRating = document.querySelector('input[name="beachRating"]:checked');
+        const cityRating = document.querySelector('input[name="cityRating"]:checked');
+        const snowRating = document.querySelector('input[name="snowRating"]:checked');
+        const budget = document.getElementById("budgetInput").value;
+
+        // TODO: implement recommendation logic based on selected ratings and budget
+        // alert recommendation result
+        alert("We recommend london destination!");
+      }
+    </script>
+
+  </body>
+</html>

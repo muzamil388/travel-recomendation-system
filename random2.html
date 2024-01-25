@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Responsive Slideshow</title>
+	<style>
+		#slideshow {
+			max-width: 100%;
+			height: auto;
+			position: relative;
+		}
+		#slideshow img {
+			max-width: 100%;
+			height: auto;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			margin: auto;
+			opacity: 0;
+			transition: opacity 1s ease-in-out;
+		}
+		#slideshow img.active {
+			opacity: 1;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			var images = $('#slideshow img');
+			var numImages = images.length;
+			var currentIndex = 0;
+			var delay = 3000;
+			setInterval(function(){
+				images.removeClass('active');
+				images.eq(currentIndex).addClass('active');
+				currentIndex = (currentIndex + 1) % numImages;
+			}, delay);
+		});
+	</script>
+</head>
+<body>
+	<div id="slideshow">
+		<img src="beach.jpg" alt="Beach">
+		<img src="city.jpg" alt="City">
+		<img src="outdoor.jpg" alt="Outdoor">
+		<img src="snow.jpg" alt="Snow">
+	</div>
+</body>
+</html>
